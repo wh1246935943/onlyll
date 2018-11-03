@@ -1,16 +1,16 @@
-import Alert from './alert';
-import Toast from './toast';
-import Modal from './modal';
-import Menu from './menu'
+import Alert from './src/components/alert';
+import Toast from './src/components/toast';
+import Modal from './src/components/modal';
+import Menu from './src/components/menu';
 
-const wui = {
+const components = {
   Modal,
   Menu
 };
 
-wui.install = (Vue, options = {}) => {
-  for (const componentName in wui) {
-    const component = wui[componentName];
+components.install = (Vue, options = {}) => {
+  for (const componentName in components) {
+    const component = components[componentName];
 
     if (component && componentName !== 'install') {
       Vue.component(component.name, component);
@@ -21,4 +21,4 @@ wui.install = (Vue, options = {}) => {
   Vue.prototype.$toast = Toast
 };
 
-export default wui
+export default components

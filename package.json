@@ -1,0 +1,24 @@
+{
+  "name": "onlyll",
+  "version": "0.0.2",
+  "description": "一个vue组件包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wh1246935943/onlyll.git"
+  },
+  "keywords": [
+    "test",
+    "vue",
+    "plugin"
+  ],
+  "author": "wh1246935943",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wh1246935943/onlyll/issues"
+  },
+  "homepage": "https://github.com/wh1246935943/onlyll#readme"
+}
