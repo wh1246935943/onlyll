@@ -1,1 +1,1 @@
-# wui
+# vue component plugin
