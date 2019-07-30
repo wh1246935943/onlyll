@@ -1,3 +1,3 @@
-import Menu from './menu.vue'
+import LhMenu from './Menu.vue'
 
-export default Menu
+export default LhMenu

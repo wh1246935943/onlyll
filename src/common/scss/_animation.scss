@@ -1,0 +1,24 @@
+@keyframes fadelintop {
+	from {
+		transform: translateY(-100%)
+	}
+	to {
+		transform: translateY(0)
+	}
+}
+@keyframes fadelouttop {
+	from {
+		transform: translateY(0)
+	}
+	to {
+		transform: translateY(-100%)
+	}
+}
+
+
+.fadel-in-top{
+	animation: fadelintop 0.3s;
+}
+.fadel-out-top{
+	animation: fadelouttop 0.3s;
+}

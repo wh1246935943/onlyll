@@ -1,3 +1,3 @@
-import Modal from './modal.vue';
+import LhModal from './modal.vue';
 
-export default Modal
+export default LhModal

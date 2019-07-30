@@ -1,41 +1,31 @@
 <template>
-  <div class="modal" v-if="isShowModal">
-    <div class="modal-background" @click="$emit('close')">
-    </div>
-    <div class="modal-card" :style="cardSize">
-      <div class="modal-title" v-if="isTitle">
-        <span>{{title}}</span>
-        <!-- <i class="iconfont icon-guanbi" @click="$emit('close')"></i> -->
-      </div>
-      <slot></slot>
-    </div>
-    <div v-if="isCloseBtn" class="close" @click="$emit('close')">
-      <i class="iconfont icon-guanbi1"></i>
-    </div>
+  <div class="lh-modal" v-if="isModal">
+    <div class="modal-background" @click="$emit('close')"></div>
+    <slot></slot>
   </div>
 </template>
 <script>
 export default {
-  name: 'wModal',
+  name: 'LhModal',
   data() {
     return {
 
     }
   },
   props: {
-    isShowModal: {
+    isModal: {
       type: Boolean,
       default: false
     },
-    cardSize: String | Object,
+    cardSize: String,
     title: String,
     isTitle: Boolean,
     isCloseBtn: Boolean
   }
 }
 </script>
-<style lang="scss" scoped>
-.modal{
+<style lang="scss">
+.lh-modal{
   position: fixed;
   width: 100%;
   height: 100%;
@@ -45,6 +35,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
   .modal-background{
     position: absolute;
     top: 0;
@@ -53,12 +44,11 @@ export default {
     width: 100%;
     height: 100%;
   }
-  .modal-card{
-    overflow: hidden;
+  .lh-modal-card{
     display: flex;
     flex-direction: column;
     border-radius: 4px;
-    .modal-title{
+    .lh-modal-title{
       background: #565656;
       padding: 5px 10px;
       display: flex;
@@ -80,7 +70,7 @@ export default {
     .icon-guanbi1{
       color: #fff;
     }
-    &:hover{
+    &:active{
       background: red;
       cursor: pointer;
     }
