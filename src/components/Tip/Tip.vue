@@ -1,5 +1,7 @@
 <template>
-  <div class="lh-tip"
+  <div 
+    class="lh-tip"
+    ref="lhTip"
     :class="[
       `lh-tip-${position}`,
       `lh-tip-${type}`,
@@ -13,7 +15,10 @@
       class="iconfont"
       :class="`icon${alertType}`"
     ></i>
-    <div class="lh-tip-msg">{{msg}}</div>
+    <div class="lh-tip-msg">
+      <i v-if="type==='loading'" class="iconfont iconloading1"></i>
+      {{msg}}
+    </div>
   </div>
 </template>
 <script>
@@ -22,7 +27,8 @@ export default {
   data () {
     return {
       isTip: true,
-      animation: 'fadel-in-top'
+      animation: 'fadel-in-top',
+      noAnim: ['bubble', 'loading']
     }
   },
   props: {
@@ -45,7 +51,7 @@ export default {
     alertType: {
       type: String,
       default: 'success'
-    }
+    },
   },
   computed: {
     isAlert() {
@@ -54,11 +60,12 @@ export default {
   },
   beforeMount() {
     document.body.appendChild(this.$el);
-    if (this.type === 'bubble') this.animation = ''
+    if (this.noAnim.includes(this.type)) this.animation = ''
   },
   mounted() {
+    if (this.type === 'loading') return
     setTimeout(() => {
-      if (this.type === 'bubble') {
+      if (this.noAnim.includes(this.type)) {
         this.isTip = false;
         return;
       }
@@ -82,7 +89,7 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     max-width: 90%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     box-shadow: 0 3px 5px rgba(0,0,0,.3);
   }
@@ -117,8 +124,7 @@ export default {
     }
   }
   .lh-tip-msg{
-    width: 100%;
-    height: 100%;
+    display: inline-block;
     padding: 8px 20px;
     word-wrap: break-word;
   }
@@ -127,6 +133,29 @@ export default {
   }
   &.lh-tip-top{
     top: 50px;
+  }
+  &.lh-tip-loading{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lh-tip-msg{
+      display: inline-block;
+      max-width: 90%;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 5px;
+      vertical-align: middle;
+      .iconfont{
+        display: inline-block;
+        color: #fff;
+        margin-right: 5px;
+        animation: lhrotate 0.8s linear infinite;
+      }
+    }
   }
 }
 </style>

@@ -15,7 +15,7 @@ export default {
       type: 'bubble',
       position: 'bottom'
     };
-    const propsData = Object.assign(defaultParam, params)
+    const propsData = Object.assign(params, defaultParam)
     return open(propsData)
   },
   alert(params) {
@@ -23,7 +23,18 @@ export default {
       type: 'alert',
       position: 'top'
     };
-    const propsData = Object.assign(defaultParam, params)
+    const propsData = Object.assign(params, defaultParam)
     return open(propsData)
+  },
+  loading(params) {
+    const defaultParam = {
+      type: 'loading',
+      position: 'center'
+    };
+    const propsData = Object.assign(params, defaultParam)
+    return open(propsData)
+  },
+  clear() {
+    document.body.removeChild(document.querySelector('.lh-tip'));
   }
 }

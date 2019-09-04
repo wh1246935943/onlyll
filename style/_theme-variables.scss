@@ -1,0 +1,34 @@
+$fontcolor: #fff;
+// 默认颜色
+$primary: #ff6941;
+// 默认深色
+$dark: #f37c5b;
+// 取消操作颜色
+$cancel: #435466;
+// 取消操作深色
+$canceldark: #2d4054;
+// 不可操作颜色
+$disabled: #c8c9cc;
+// 信息色
+$info: #dcdcdc;
+// 边框
+$border: 0.5px solid #dcdcdc;
+// 组件底色
+$bgColor: #fff;
+$padding: 10px;
+$titleTxt: #222222;
+$titleInfo: #666666;
+
+
+
+// 动画效果
+$transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+
+// 边框阴影
+$shadow: 	0px 3px 1px -2px rgba(0,0,0,0.2),
+					0px 2px 2px 0px rgba(0,0,0,0.14),
+					0px 1px 5px 0px rgba(0,0,0,0.12);
+// 鼠标激活边框阴影
+$activeshadow: 	0px 5px 5px -3px rgba(0,0,0,0.2),
+								0px 8px 10px 1px rgba(0,0,0,0.14),
+								0px 3px 14px 2px rgba(0,0,0,0.12);
